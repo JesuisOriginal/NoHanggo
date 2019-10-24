@@ -39,16 +39,25 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 //    private PieChart pieChart;w
 
-    final Button signUpButton = findViewById(R.id.createUserButton);
-    final EditText displayNameEditText =  findViewById(R.id.name_field);
-    final EditText usernameEditText = findViewById(R.id.mail_field);
-    final EditText passwordEditText = findViewById(R.id.password_field);
-    final Button login = findViewById(R.id.login);
+    Button signUpButton;
+    EditText displayNameEditText;
+    EditText usernameEditText;
+    EditText passwordEditText;
+    Button login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // sets the .xml current view
         setContentView(R.layout.activity_sign_in);
+
+        signUpButton = findViewById(R.id.createUserButton);
+        displayNameEditText =  findViewById(R.id.name_field);
+        usernameEditText = findViewById(R.id.mail_field);
+        passwordEditText = findViewById(R.id.password_field);
+        login = findViewById(R.id.login);
+
+
         // pie start
 //        pieChart = findViewById(R.id0
 //         pie end
@@ -97,16 +106,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    private void getEntries() {
-//        pieEntries = new ArrayList<>();
-//        pieEntries.add(new PieEntry(2f, 0));
-//        pieEntries.add(new PieEntry(4f, 1));
-//        pieEntries.add(new PieEntry(6f, 2));
-//        pieEntries.add(new PieEntry(8f, 3));
-//        pieEntries.add(new PieEntry(7f, 4));
-//        pieEntries.add(new PieEntry(3f, 5));
-//
-//    }
 
     public void createAccount(final String displayName, String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
