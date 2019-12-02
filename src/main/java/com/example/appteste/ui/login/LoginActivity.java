@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
 
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
-        final Button loginButton = findViewById(R.id.login);
+        final Button loginButton = findViewById(R.id.login1);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         mAuth = FirebaseAuth.getInstance();
@@ -141,20 +141,25 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAuth.signInWithEmailAndPassword(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString())
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            updateUiWithUser(mAuth.getCurrentUser());
-//                            startActivity(new Intent(LoginActivity.this, MenuActivity.class));
-                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                        } else {
-                            Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+                if (usernameEditText.getText().toString().equals(null) ||
+                        passwordEditText.getText().toString().equals(null) ) {
+                    Log.i(TAG, "onClick: Algum dos campo vazio");
+                }
+                else {
+                    mAuth.signInWithEmailAndPassword(usernameEditText.getText().toString(),
+                            passwordEditText.getText().toString())
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        updateUiWithUser(mAuth.getCurrentUser());
+                                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                                    } else {
+                                        Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+                }
             }
         });
 

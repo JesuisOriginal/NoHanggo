@@ -6,14 +6,15 @@ import androidx.lifecycle.ViewModel;
 
 public class ToolsViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+//    private MutableLiveData<String> mText;
 
     public ToolsViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is tools fragment");
+//        mText = new MutableLiveData<>();
+//        mText.setValue("This is tools fragment");
+
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
+//    public LiveData<String> getText() {
+//        return mText;
+//    }
 }

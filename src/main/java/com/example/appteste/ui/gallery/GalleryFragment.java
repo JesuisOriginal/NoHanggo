@@ -31,31 +31,9 @@ public class GalleryFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
 
 
-//        final TextView textView = root.findViewById(R.id.text_gallery);
-        final ImageButton lapaBtn = root.findViewById(R.id.btnLapa);
-        final ImageButton gordaBtn = root.findViewById(R.id.gordaBtn);
 
-//        galleryViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
         final Activity context = getActivity();
-        lapaBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                Toast.makeText(context,"Laposo.", Toast.LENGTH_SHORT).show();
-            }
-        });
 
-        gordaBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "Otaku Fudido que gosta de SAO", Toast.LENGTH_SHORT).show();
-            }
-        });
         return root;
     }
 }

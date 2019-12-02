@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     EditText displayNameEditText;
     EditText usernameEditText;
     EditText passwordEditText;
-    Button login;
+    ImageButton login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
         signUpButton = findViewById(R.id.createUserButton);
         displayNameEditText =  findViewById(R.id.name_field);
-        usernameEditText = findViewById(R.id.mail_field);
-        passwordEditText = findViewById(R.id.password_field);
+        usernameEditText = findViewById(R.id.username);
+        passwordEditText = findViewById(R.id.password);
         login = findViewById(R.id.login);
 
 
