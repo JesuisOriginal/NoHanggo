@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="feedback.css" media="screen"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>feedback</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="Logo.png" width="300">
+            </div>    
+            <div class="col-sm-8">
+                <p id="explicação">escreva aqui algo que você deseja que o hangoo melhore ou a sugestão de um novo produto ou a falta de um</p>
+            </div>
+        </div>    
+        <div class="row">
+            <div class="col-sm-12">        
+                <p>nome:</p>
+                <input type="text" id="usuario">
+            </div>
+        </div>    
+        <div class="row">
+            <div class="col-sm-12">
+                <p>idade:</p>
+                <input type="text" id="idade">
+            </div>
+        </div>    
+        <div class="row">
+            <div class="col-sm-12">
+                <p>escreva sua sugestão:</p>
+                <textarea id="box" rows = "3" cols="40"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <button onclick="escrever()">enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!--firebase starts-->
+
+
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+<script src="feedback.js"></script>
+    
+<!--firebase ends-->    
+
+</body>
+</html>
