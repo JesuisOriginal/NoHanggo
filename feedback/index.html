@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>feedback</title>
+</head>
+<body>
+        <style>
+.container{
+    background-image: url("images/back.jpeg");
+}
+#explicação{
+    margin-top: 10px;
+    margin-left: 125px;
+
+}
+#logo{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+/* #box{
+
+} */
+</style>
+       <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <img id="logo" src="images/Logo.png" width="300">
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col-sm-12">  
+                    <p id="explicação">SUGESTÃO</p>
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col-sm-12">        
+                    <p>nome:</p>
+                    <input type="text" id="usuario" placeholder="opcional" maxlength="15">
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>idade:</p>
+                    <input type="text" id="idade" placeholder="opcional" maxlength="15">
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>escreva sua sugestão:</p>
+                    <textarea id="box" rows = "3" cols="40" maxlength="240"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button id="btn">enviar</button>
+                </div>
+            </div>
+        </div>
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+    <script>
+        var firebaseConfig = {
+        apiKey: "AIzaSyAvon5BBiMDjnR_Y0qB053VaSlX99ql6TY",
+        authDomain: "apptestedb.firebaseapp.com",
+        databaseURL: "https://apptestedb.firebaseio.com",
+        projectId: "apptestedb",
+        storageBucket: "apptestedb.appspot.com",
+        messagingSenderId: "61531276055",
+        appId: "1:61531276055:web:b7925b9975312ef683ed52"
+      };
+      firebase.initializeApp(firebaseConfig);
+      var db = firebase.firestore();
+      document.getElementById("btn").addEventListener("click",function() {
+         var comentario = document.querySelector("#box").value;
+         var nome = document.querySelector("#usuario").value;
+         var idade = document.querySelector("#idade").value;
+        console.log(comentario);
+        db.collection("feedback").add({
+            usuario: nome,
+            idade: idade,
+            comentario: comentario
+        }).then(function() {
+            console.log("fez o upload");
+        }).catch(function (error) {
+            console.error("Error writing document: ", error);
+        });
+        window.alert("Obrigado por enviar sua sugestão");
+    },{once : true});
+    </script>
+          
+    </body>
+    </html>
